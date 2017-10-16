@@ -1163,7 +1163,7 @@ QuickLaTeX is free under linkware license. Which means service can be used: (a) 
 						  'eqno'		=> null,    					// eq. number with aligment from global option
 						  'align'		=> null,	 					// horizontal align of displayed equation - valid only for displayed equations.
 						  'width'		=> null,   						// picture width - valid only for pictures (tikz).
-						  'eqlabel'		> null	    					// eq. label placed on the opposite side of eqno.
+						  'eqlabel'		=> null	    					// eq. label placed on the opposite side of eqno.
 						  );
 
 		// Rewrite default atts with parameters supplied by user
