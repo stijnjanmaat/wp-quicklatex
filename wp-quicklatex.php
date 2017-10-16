@@ -2072,8 +2072,17 @@ QuickLaTeX is free under linkware license. Which means service can be used: (a) 
 		$string = str_replace("&nbsp;"," ",$string);
 		
 		// replace numeric entities
-		$string = preg_replace('~&#x([0-9a-f]+);~ei', 'quicklatex_unichr(hexdec("\\1"))', $string);
-		$string = preg_replace('~&#([0-9]+);~e', 'quicklatex_unichr("\\1")', $string);
+		$string = preg_replace_callback(
+			'/&#x([0-9a-f]+);/i', 
+			function($matches) { return quicklatex_unichr(hexdec($matches[1])); },
+			$string
+		);
+                
+		$string = preg_replace_callback(
+			'/&#([0-9]+);/', 
+			function($matches) { return quicklatex_unichr($matches[1]); },                
+			$string
+		);
 		
 		// replace other literal entities	
 		if (!isset($trans_tbl))
